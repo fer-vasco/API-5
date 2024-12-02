@@ -338,7 +338,7 @@ df_app = Generar_df_con_variaciones_y_desvíos(empresas=empresas, período=perí
 
 
 clave = str(123)
-st.title('🍁 Resultados v6.01')
+st.title('🍁 Resultados v5.03')
 text_input = st.text_input("Clave 👇", type="password")
 
 if text_input:
