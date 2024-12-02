@@ -314,9 +314,9 @@ def Generar_df_con_variaciones_y_desvíos(empresas, período, intervalo, desde, 
 # Inicio del programa
 # ===================
 
-"""
-Primero se obtienen y calculan los datos.
-"""
+
+# Primero se obtienen y calculan los datos.
+
 
 Parametros_de_visualizacion()
 api_key = 'BKewxsq6oAF5okFIZ5b84WGWGiy3kiOm'
@@ -334,9 +334,8 @@ df_app = Generar_df_con_variaciones_y_desvíos(empresas=empresas, período=perí
 # print(df_app)
 
 
-"""
-Con los datos, se corre el proceso de presentación en la app.
-"""
+# Con los datos, se corre el proceso de presentación en la app.
+
 
 clave = str(123)
 st.title('🍁 Resultados v5')
