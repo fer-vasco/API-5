@@ -199,7 +199,7 @@ def fetch_gainers(api_key):
 	dataframe: Devuelve un dataframe con el ticker, el nombre de la empresa, el cambio porcentual en close y el capital de la empresa.
 	"""
 
-	url = f'https://financialmodelingprep.com/api/v3/stock_market/losers?apikey={api_key}'
+	url = f'https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey={api_key}'
 	response = requests.get(url)
 	gainers = response.json()
 
@@ -220,7 +220,7 @@ def fetch_gainers(api_key):
 	df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales)),
 	       columns =['Ticker', 'Empresa', 'Cambio', 'Capital'])
 
-	df_empresas.sort_values(by=['Capital'], ascending=True, inplace=True)
+	df_empresas.sort_values(by=['Capital'], ascending=False, inplace=True)
 	df_empresas['Capital'] = round(df_empresas['Capital']/1000000,1).astype('str') + ' M'
 	df_empresas['Cambio'] = round(df_empresas['Cambio'],1).astype('str') + '%'
 	df_empresas.set_index('Ticker', inplace=True)
@@ -338,7 +338,7 @@ df_app = Generar_df_con_variaciones_y_desvíos(empresas=empresas, período=perí
 
 
 clave = str(123)
-st.title('🍁 Resultados v6')
+st.title('🍁 Resultados v6.01')
 text_input = st.text_input("Clave 👇", type="password")
 
 if text_input:
