@@ -220,7 +220,7 @@ def fetch_gainers(api_key):
 	df_empresas = pd.DataFrame(list(zip(simbolos, nombres, cambios, capitales)),
 	       columns =['Ticker', 'Empresa', 'Cambio', 'Capital'])
 
-	df_empresas.sort_values(by=['Capital'], ascending=False, inplace=True)
+	df_empresas.sort_values(by=['Cambio'], ascending=False, inplace=True)
 	df_empresas['Capital'] = round(df_empresas['Capital']/1000000,1).astype('str') + ' M'
 	df_empresas['Cambio'] = round(df_empresas['Cambio'],1).astype('str') + '%'
 	df_empresas.set_index('Ticker', inplace=True)
@@ -338,7 +338,7 @@ df_app = Generar_df_con_variaciones_y_desvíos(empresas=empresas, período=perí
 
 
 clave = str(123)
-st.title('🍁 Resultados v5.03')
+st.title('🍁 Resultados gainers v01')
 text_input = st.text_input("Clave 👇", type="password")
 
 if text_input:
